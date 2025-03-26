@@ -1,0 +1,7 @@
+[wokwi]
+version = 1
+firmware = 'build/FreeRTOS_ESP32.bin'
+elf = 'build/FreeRTOS_ESP32.elf'
+
+[simulation]
+speed = 10.0  # Pode ajustar para 2.0, 5.0 ou mais
