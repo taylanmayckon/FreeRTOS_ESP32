@@ -19,7 +19,7 @@
 
 void GPIO_init(){
     gpio_config_t leds = {
-        .pin_bit_mask = (1<<LED_RED) | (1<<LED_GREEN), // BITMASK para os pinos de output
+        .pin_bit_mask = (1<<LED_RED)| (1<<LED_GREEN), // BITMASK para os pinos de output
         .mode = GPIO_MODE_DEF_OUTPUT, // Definindo como output
         .pull_up_en = GPIO_PULLUP_DISABLE, // Sem pullup
         .pull_down_en = GPIO_PULLDOWN_DISABLE, // Sem pulldown
@@ -61,7 +61,7 @@ void PWM_init(int gpio_number){
 
 void TaskBlink(){
     GPIO_init();
-    bool ledState = true;
+    bool ledState = 1;
 
     while(true){
         gpio_set_level(LED_RED, ledState);
@@ -103,7 +103,7 @@ void TaskPWM(){
 void app_main(void){
     xTaskCreate(&TaskBlink, // Endereço da Task da GPIO
                 "blink", // Identificador da task
-                4096, // Bytes disponibilizados para a Task
+                2048, // Bytes disponibilizados para a Task
                 NULL, // Se for enviar parâmetro para as tasks, é aqui que coloca
                 1, // Prioridade (1 a 5), min -> max
                 NULL); // Handler
